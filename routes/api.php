@@ -17,9 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('city', 'CityController@create');
-Route::post('delivery-times', 'DeliverytimeController@create');
+Route::post('city', 'CityController@store');
+Route::post('delivery-times', 'DeliverytimeController@store');
 Route::post('city/{city_id}/delivery-times', 'CityController@attach');
 Route::post('city/{city_id}/exclude/', 'CityController@exclude');
 Route::post('city/{city_id}/excludeall/', 'CityController@excludeAll');
-Route::post('city/{city_id}/delivery-dates-times/{number_of_days_to_get}', 'CityController@getDeliveryDatesTimes');
+Route::get('city/{city_id}/delivery-dates-times/{number_of_days_to_get}', 'CityController@getDeliveryDatesTimes');
